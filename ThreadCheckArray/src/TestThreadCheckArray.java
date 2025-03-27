@@ -24,7 +24,7 @@ public class TestThreadCheckArray { /* read user input, create a shared data obj
 			System.out.println("Enter number");
 			num = input.nextInt();
 			
-			SharedData sd = new SharedData(array, num);איך ניתן לעשות קיצור במאק באקליפס לתיעוד javadoc
+			SharedData sd = new SharedData(array, num);
 			
 			// Create two threads that will run the ThreadCheckArray test
 			thread1 = new Thread(new ThreadCheckArray(sd), "thread1");

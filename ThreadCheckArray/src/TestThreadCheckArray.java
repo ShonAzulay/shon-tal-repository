@@ -1,28 +1,39 @@
 import java.util.Scanner;
 
-public class TestThreadCheckArray {
+/*  
+ * Class to test checking for a subset of an array that sums to a given number
+ * The class use two separate threads
+ */
+
+public class TestThreadCheckArray { /* read user input, create a shared data object
+ 									 * luanches two threads to search for a valid subset,
+ 									 * waits for them and prints the result
+ 									 **/
 	public static void main(String[] args) {
-		try (Scanner input = new Scanner(System.in)) {
-			Thread thread1, thread2;
+		// create a Scanner to read input from the user
+		try (Scanner input = new Scanner(System.in)) { 
+			Thread thread1, thread2; //Declare the threads
 			System.out.println("Enter array size");
 			int num  = input.nextInt();
 			int [] array = new int[num];
 			System.out.println("Enter numbers for array");
 			
-			for (int index = 0; index < num; index++) 
+			for (int index = 0; index < num; index++)  // Read values into the array
 				array[index] = input.nextInt();
 			
 			System.out.println("Enter number");
 			num = input.nextInt();
 			
-			SharedData sd = new SharedData(array, num);
+			SharedData sd = new SharedData(array, num);איך ניתן לעשות קיצור במאק באקליפס לתיעוד javadoc
 			
+			// Create two threads that will run the ThreadCheckArray test
 			thread1 = new Thread(new ThreadCheckArray(sd), "thread1");
 			thread2 = new Thread(new ThreadCheckArray(sd), "thread2");
 			thread1.start();
 			thread2.start();
 			try 
 			{
+				// start both threads
 				thread1.join();
 				thread2.join();
 			} 
